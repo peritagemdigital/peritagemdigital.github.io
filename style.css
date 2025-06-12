@@ -1,0 +1,50 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+.sidebar {
+    width: 200px;
+    background: #2a3f54;
+    color: white;
+    height: 100vh;
+    padding: 20px 10px;
+}
+.sidebar .logo {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar li {
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    background: #3a4f64;
+    border-radius: 4px;
+}
+.sidebar li.active {
+    background: #1abc9c;
+}
+.main {
+    flex: 1;
+    padding: 40px;
+}
+.step {
+    max-width: 600px;
+}
+button {
+    padding: 10px 20px;
+    background: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input[type="text"], input[type="file"] {
+    display: block;
+    margin: 20px 0;
+}

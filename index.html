@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Peritagem Digital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <img src="logo.jpg" alt="Logotipo Peritagem Digital" class="logo">
+        <ul>
+            <li class="active">Abertura</li>
+            <li>Sinistro</li>
+            <li>Documentos</li>
+            <li>Em Análise</li>
+            <li>Concluído</li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="step" id="step-abertura">
+            <h1>Bem-vindo à Peritagem Digital</h1>
+            <p>Nos termos da legislação portuguesa, garantimos a confidencialidade dos dados fornecidos. Ao continuar, declara que aceita os termos de proteção de dados.</p>
+            <button onclick="goToStep('step-sinistro')">Continuar</button>
+        </div>
+        <div class="step" id="step-sinistro" style="display:none;">
+            <h2>Qual a sua estimativa para o valor de reparação dos danos?</h2>
+            <input type="text" placeholder="Ex: 500€">
+            <button onclick="goToStep('step-documentos')">Seguinte</button>
+        </div>
+        <div class="step" id="step-documentos" style="display:none;">
+            <h2>Envie fotos dos danos</h2>
+            <input type="file" multiple>
+            <button onclick="goToStep('step-analise')">Seguinte</button>
+        </div>
+        <div class="step" id="step-analise" style="display:none;">
+            <h2>A sua participação está em análise</h2>
+            <p>Será contactado por um perito muito brevemente.</p>
+            <button onclick="goToStep('step-concluido')">Seguinte</button>
+        </div>
+        <div class="step" id="step-concluido" style="display:none;">
+            <h2>Processo concluído</h2>
+            <p>Relatórios disponíveis:</p>
+            <ul>
+                <li><a href="#" download>Relatório Resumido (Segurado)</a></li>
+                <li><a href="#" download>Relatório Técnico (Seguradora)</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function goToStep(stepId) {
+            document.querySelectorAll('.step').forEach(el => el.style.display = 'none');
+            document.getElementById(stepId).style.display = 'block';
+            const steps = ['Abertura', 'Sinistro', 'Documentos', 'Em Análise', 'Concluído'];
+            document.querySelectorAll('.sidebar ul li').forEach((el, index) => {
+                el.classList.toggle('active', 'step-' + steps[index].toLowerCase().replace(' ', '-') === stepId);
+            });
+        }
+    </script>
+</body>
+</html>
